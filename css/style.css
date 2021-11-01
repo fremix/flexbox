@@ -1,0 +1,263 @@
+:root {
+  --azul: #0071b7;
+  --blanco: #fff;
+  --naranja: #ff4f1e;
+}
+html {
+  font-size: 62.5%; /** 1REM = 10pX **/
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--azul);
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+}
+
+h1,
+h2 {
+  color: var(--blanco);
+  text-align: center;
+  margin: 5rem 0;
+  padding: 1rem;
+}
+.caja-curso {
+  background-color: var(--naranja);
+  text-align: center;
+  color: var(--blanco);
+  padding: 5rem;
+}
+.caja-curso h1 {
+  margin: 0;
+}
+.caja-curso p {
+  font-size: 2.4rem;
+}
+.caja-curso a {
+  font-size: 2.4rem;
+  padding: 2rem;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--blanco);
+  padding: 0;
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+.box {
+  background-color: var(--naranja);
+  color: var(--blanco);
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  border: 1rem solid #bb2b03;
+}
+
+.contenedor > div {
+  background-color: var(--blanco);
+  padding: 5rem;
+}
+
+/* Flexbox siempre afecta al primer nivel de hijos y los elementos se colocan de izquierda a derecha*/
+/* 1 */
+
+.d-flex {
+  display: flex;
+}
+
+/* 2 Flex Direction */
+
+.d-flex-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+/* 3 Justify Content (Dirección Row)*/
+
+.d-flex-3 {
+  display: flex; /* Cuando pones display: flex en automatico se agrega el flex-direction: row; NO es neesario agregarlo*/
+  justify-content: space-evenly;
+}
+
+/* 4 Justify Content (Dirección Column)*/
+
+.d-flex-4 {
+  display: flex;
+  flex-direction: column; /* para indicar que es una column*/
+  height: 1000px;
+  justify-content: space-evenly; /* Para alinear verticalmente*/
+}
+
+/* 5 Align items - Direccion Row*/
+
+.d-flex-5 {
+  /* Align items Sirve para alinear de arriba hacia abajo (vertical) cuando la direccion es ROW*/
+  display: flex; /*Justify-content: cuando la direccion es ROW sirve para alinear de izquierda a derecha u horizontalmente*/
+  height: 700px;
+
+  align-items: flex-start; /*alinear arriba*/
+  align-items: flex-end; /*alinear abajo*/
+  align-items: center; /*alinear en medio*/
+  /* teniendo un flex-direction de ROW justify-content sirve para alinear contido horizontalmente o de izquierda a derecha
+    teniendo ese mismo flex-direction de ROW aligt-items sirve para alinear de arriba hacia abajo o verticamente */
+}
+
+/* 6 Align Items (Dirección Columna)*/
+
+.d-flex-6 {
+  /* Cuando es columna justify-content y aling-items se invierte, de los que dice el punto seis.*/
+  display: flex; /* así, justify-content va de arriba hacia abajo, aling-items va de izquierda a derecha*/
+  flex-direction: column;
+  height: 800px;
+
+  align-items: flex-start;
+  align-items: flex-end;
+  align-items: center;
+  align-items: stretch;
+}
+
+/* 7.- Align Items y Justify-Content juntos */
+
+.d-flex-7 {
+  display: flex;
+  height: 800px;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  /*
+  justify-content: center; /* cuando es ROW alinea horizontalmente*/
+  /*
+  align-items: center; /* cuando es ROW alinea verticalemte*/
+}
+
+/* 8.- Flex Basis */
+
+.d-flex-8 {
+  display: flex;
+}
+
+.d-flex-8 .box {
+  flex-basis: 33.3%; /* Se aplica unicamente a los hijos */
+  flex-basis: 200px; /* es un valor inicial y es flexible */
+}
+
+/* 9.- Gap y Calc 
+
+/*
+.d-flex-9 {
+  display: flex;
+   gap: 2rem; para añadir una seperacion entre columnas
+  justify-content: space-between;
+
+}
+
+.d-flex-9 .box { /* Se utiliza unicamente en los hijos
+flex-basis: 33.3%; se acompaña con el gap
+ 
+ flex-basis: calc( 33.3% - 1rem );
+
+*****************************
+
+.d-flex-9 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-flex-9 .box {
+  flex-basis: calc( 33.3% - 1rem );
+}
+
+}*/
+
+.d-flex-9 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-flex-9 .box:nth-child(1) {
+  flex-basis: calc(50% - 1rem);
+}
+
+.d-flex-9 .box:nth-child(2),
+.d-flex-9 .box:nth-child(3) {
+  flex-basis: calc(25% - 1rem);
+}
+
+/* 10.- Flex Wrap */
+
+.d-flex-10 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.d-flex-10 .box {
+  flex-basis: 33.3%;
+}
+
+
+/* Flex Grow  pregunta para obtener un trabajo como desarrollador*/
+
+.d-flex-11 { /* flexbox solo afecta a lo hijos en primer nivel */
+  display: flex;
+}
+
+.d-flex-11 .box:nth-child(1) { /* Se aplica a los hijos, y cuando se le quiere aplicar grow por separado con nth-child*/
+  flex-grow: 4; /* Factor de crecimiento */
+}
+
+/*  El ancho de un elemento en css son 4 cosas: contenido, padding, border, margin
+    flex-grow: El factor de crecimiento es la distribucion de px que recibe un elemento
+    de forma equitativa, de los px disponibles de un contenedor, se asigna a cada unos de los hijos.
+    Porque sin flex-grow nuestro contenido no crece: porque el valor por 
+    default de flex-grow es cero
+
+*/
+
+
+.d-flex-11 .box:nth-child(2),
+.d-flex-11 .box:nth-child(3) {
+  flex-grow: 1; /* Este es el valor en px*/
+}
+
+/* 12.- Flex Shrink */
+
+.d-flex-12 {
+  display: flex;
+}
+
+.d-flex-12 .box {
+  flex-grow: 1;
+  flex-basis: 300px;
+}
+
+.d-flex-12 .box:nth-child(3) {
+  flex-shrink: 2; /* Es el factor de decremento, similara flex-grow pero alreves*/
+}
+
+/* 13.- Flex Shorthand */
+
+.d-flex-13 { /* se aplica en los hijos*/
+  display: flex;
+}
+
+.d-flex-13 .box {
+  /* se sustituye por
+  1.- flex-grow: 1;
+  2.- flex-shrink: 1;
+  3.- flex-basis: 33.3%;
+  */
+  flex: 1 0 33.3%; /* Es un shorthand de los tres anteriores, todo en una sola linea */
+
+}
